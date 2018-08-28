@@ -50,17 +50,38 @@ $nd_options_meta_box_post_header_img_position = get_post_meta( get_the_ID(), 'nd
 $nd_options_meta_box_post_sidebar_position = get_post_meta( get_the_ID(), 'nd_options_meta_box_post_sidebar_position', true );
 if ( $nd_options_meta_box_post_sidebar_position == '' ) { $nd_options_meta_box_post_sidebar_position = 'nd_options_full_width'; }
 
+?>
 
-if ( $nd_options_meta_box_post_header_img != '' ) { ?>
+<?php
+
+//header image
+$nd_options_customizer_archives_archive_image = get_option( 'nd_options_customizer_archives_archive_image' );
+if ( $nd_options_customizer_archives_archive_image == '' ) { 
+    $nd_options_customizer_archives_archive_image = '';  
+}else{
+    $nd_options_customizer_archives_archive_image = wp_get_attachment_url($nd_options_customizer_archives_archive_image);
+}
+
+
+//position
+$nd_options_customizer_archives_archive_image_position = get_option( 'nd_options_customizer_archives_archive_image_position' );
+if ( $nd_options_customizer_archives_archive_image_position == '' ) { 
+    $nd_options_customizer_archives_archive_image_position = 'nd_options_background_position_center_top';  
+}
+
+?>
 
 
 
     <?php if(have_posts()) :
         while(have_posts()) : the_post(); ?>
 
+            <?php if ( $nd_options_meta_box_post_header_img != '' ) : ?>
             <div id="nd_options_post_header_img_layout_3" class="nd_options_section nd_options_background_size_cover <?php echo $nd_options_meta_box_post_header_img_position ?>" style="background-image:url(<?php echo $nd_options_meta_box_post_header_img; ?>);">
-
-                <div class="nd_options_section nd_options_bg_greydark_alpha_2">
+            <?php else: ?>
+            <div id="nd_options_post_header_img_layout_3" class="nd_options_section nd_options_background_size_cover <?php echo $nd_options_customizer_archives_archive_image_position; ?>"  style="background-image:url(<?php echo $nd_options_customizer_archives_archive_image; ?>);">
+            <?php endif; ?>        
+                <div class="nd_options_section nd_options_bg_greydark_alpha_5">
 
                     <!--start nd_options_container-->
                     <div class="nd_options_container nd_options_clearfix">
@@ -69,8 +90,8 @@ if ( $nd_options_meta_box_post_header_img != '' ) { ?>
                         <div class="nd_options_section nd_options_height_100"></div>
 
                         <div class="nd_options_section nd_options_text_align_center nd_options_text_align_left_all_iphone nd_options_padding_15 nd_options_box_sizing_border_box">
-
-                            <h1 class="nd_options_color_white nd_options_font_size_50 nd_options_font_size_40_all_iphone nd_options_line_height_40_all_iphone nd_options_first_font"><strong><?php echo $nd_options_meta_box_post_header_img_title; ?></strong></h1>
+                            <a href="#" class="nd_options_color_white nd_options_color_white_first_a nd_options_letter_spacing_3 nd_options_font_weight_lighter nd_options_font_size_18 nd_options_text_transform_uppercase">Arckezelések</a>
+                            <h1 class="nd_options_color_white nd_options_font_size_50 nd_options_font_size_40_all_iphone nd_options_line_height_40_all_iphone nd_options_first_font"><strong><?php the_title(); ?></strong></h1>
                             <div class="nd_options_section nd_options_height_20"></div>
 
 
@@ -82,7 +103,7 @@ if ( $nd_options_meta_box_post_header_img != '' ) { ?>
 
                         <div class="nd_options_section nd_options_height_100"></div>
 
-                        <?php do_action('nd_options_end_header_img_post_hook'); ?>
+                        <?php //do_action('nd_options_end_header_img_post_hook'); ?>
 
                     </div>
                     <!--end container-->
@@ -94,9 +115,6 @@ if ( $nd_options_meta_box_post_header_img != '' ) { ?>
         <?php endwhile; ?>
     <?php endif; ?>
 
-
-
-<?php } ?>
 
 
 <!--post margin-->
@@ -116,7 +134,7 @@ if ( $nd_options_meta_box_post_header_img != '' ) { ?>
 
                 $nd_options_left_sidebar = '';
                 $nd_options_right_sidebar = 'yes';
-                $nd_options_content_class = 'nd_options_float_left nd_options_box_sizing_border_box nd_options_width_66_percentage nd_options_width_100_percentage_responsive nd_options_padding_15';
+                $nd_options_content_class = 'nd_options_float_center nd_options_box_sizing_border_box nd_options_width_66_percentage nd_options_width_100_percentage_responsive nd_options_padding_15';
 
 
             ?>
@@ -126,11 +144,10 @@ if ( $nd_options_meta_box_post_header_img != '' ) { ?>
             <div class="<?php echo $nd_options_content_class; ?>">
 
                 <!--#post-->
-                <div style="float:left; width:100%;" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <!--automatic title-->
-                    <?php if ( get_post_meta( get_the_ID(), 'nd_options_meta_box_post_title', true ) != 1 ) { echo '<h1 class=""><strong>'.get_the_title().'</strong></h1><div class="nd_options_section nd_options_height_20"></div>'; } ?>
-
-                    <?php the_excerpt(); ?>
+                <div id="post-<?php the_ID(); ?>" <?php post_class('bodycopy'); ?>>
+                    <div class="lead">
+                        <?php the_excerpt(); ?>
+                    </div>
                     <?php if ( has_post_thumbnail() ) { the_post_thumbnail(); }  ?>
                     <!--start content-->
                     <?php the_content(); ?>
@@ -168,24 +185,6 @@ if ( $nd_options_meta_box_post_header_img != '' ) { ?>
 
             </div>
             <!--END all content-->
-
-
-
-            <?php
-
-            //RIGHT SIDEBAR
-            if ($nd_options_right_sidebar == 'yes') { ?>
-
-
-                <div class="nd_options_float_left nd_options_box_sizing_border_box nd_options_width_33_percentage nd_options_width_100_percentage_responsive nd_options_padding_15">
-
-                    <div class="nd_options_section nd_options_sidebar"><?php dynamic_sidebar('nicdark_sidebar'); ?></div>
-
-                </div>
-
-
-            <?php } ?>
-
 
 
         <?php endwhile; ?>
