@@ -73,8 +73,22 @@ if ( $nd_options_customizer_archives_archive_image_position == '' ) {
 
 
 
+
+
     <?php if(have_posts()) :
         while(have_posts()) : the_post(); ?>
+
+            <?php 
+                $servicetypes = get_the_terms( $post->ID, 'service-type' );
+                if ($servicetype = $servicetypes[0]) {
+                    $headnavlink = get_term_link( $servicetype->term_id );
+                    $headnavtext = $servicetype->name;
+                } else {
+                    $headnavlink = get_permalink(519);
+                    $headnavtext = 'Szolgáltatások';
+                }
+            
+            ?>
 
             <?php if ( $nd_options_meta_box_post_header_img != '' ) : ?>
             <div id="nd_options_post_header_img_layout_3" class="nd_options_section nd_options_background_size_cover <?php echo $nd_options_meta_box_post_header_img_position ?>" style="background-image:url(<?php echo $nd_options_meta_box_post_header_img; ?>);">
@@ -90,7 +104,7 @@ if ( $nd_options_customizer_archives_archive_image_position == '' ) {
                         <div class="nd_options_section nd_options_height_100"></div>
 
                         <div class="nd_options_section nd_options_text_align_center nd_options_text_align_left_all_iphone nd_options_padding_15 nd_options_box_sizing_border_box">
-                            <a href="#" class="nd_options_color_white nd_options_color_white_first_a nd_options_letter_spacing_3 nd_options_font_weight_lighter nd_options_font_size_18 nd_options_text_transform_uppercase">Arckezelések</a>
+                            <a href="<?= $headnavlink ?>" class="nd_options_color_white nd_options_color_white_first_a nd_options_letter_spacing_3 nd_options_font_weight_lighter nd_options_font_size_18 nd_options_text_transform_uppercase"><?= $headnavtext ?></a>
                             <h1 class="nd_options_color_white nd_options_font_size_50 nd_options_font_size_40_all_iphone nd_options_line_height_40_all_iphone nd_options_first_font"><strong><?php the_title(); ?></strong></h1>
                             <div class="nd_options_section nd_options_height_20"></div>
 

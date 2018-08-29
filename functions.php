@@ -101,3 +101,16 @@ add_action( 'add_meta_boxes', 'bobe_nd_options_metabox_services_header_img' );
 function bobe_nd_options_metabox_services_header_img() {
     add_meta_box( 'nd-options-meta-box-post-header-img-id', __('ND Options Header Image','nd-shortcodes'), 'nd_options_metabox_post_header_img', 'service', 'normal', 'high' );
 }
+
+
+
+function bobe_modify_services_archive($query)
+{
+    if ( ($query->is_main_query()) && ($query->is_archive('service') || $query->is_tax('service-type')  ) && (!is_admin()) ) {
+      $query->set('posts_per_page', -1);
+      $query->set('orderby', 'menu_order');
+      $query->set('order', 'ASC');
+      $query->set('post_status', array('publish' ));
+    }
+}
+add_action('pre_get_posts', 'bobe_modify_services_archive');

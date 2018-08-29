@@ -77,7 +77,7 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
                 <div class="nd_options_section nd_options_height_100"></div>
 
                 <div class="nd_options_section nd_options_padding_15 nd_options_box_sizing_border_box">
-                    <a href="#" class="nd_options_color_white nd_options_text_transform_uppercase nd_options_second_font nd_options_letter_spacing_3 nd_options_font_weight_lighter nd_options_font_size_18">
+                    <a href="<?php the_permalink(519)?>" class="nd_options_color_white nd_options_text_transform_uppercase nd_options_second_font nd_options_letter_spacing_3 nd_options_font_weight_lighter nd_options_font_size_18">
                         Szolgáltatások
                     </a>
                     <div class="nd_options_section nd_options_height_10"></div>
