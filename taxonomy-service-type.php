@@ -124,7 +124,7 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
     <!--start nd_options_container-->
     <div class="nd_options_container nd_options_clearfix">
         
-        <div class="nd_options_float_center nd_options_box_sizing_border_box nd_options_width_100_percentage_responsive nd_options_padding_15">
+        <div class="nd_options_float_center nd_options_box_sizing_border_box nd_options_padding_15">
             <div class="lead"><?php echo wpautop($term->description); ?></div>
         </div>       
 

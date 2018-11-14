@@ -155,7 +155,7 @@ if ( $nd_options_customizer_archives_archive_image_position == '' ) {
 
                 $nd_options_left_sidebar = '';
                 $nd_options_right_sidebar = 'yes';
-                $nd_options_content_class = 'nd_options_float_center nd_options_box_sizing_border_box nd_options_width_66_percentage nd_options_width_100_percentage_responsive nd_options_padding_15';
+                $nd_options_content_class = 'nd_options_float_center nd_options_box_sizing_border_box nd_options_width_75_percentage nd_options_width_100_percentage_responsive nd_options_padding_15';
 
 
             ?>

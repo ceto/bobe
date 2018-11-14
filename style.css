@@ -21,9 +21,11 @@ img {
     margin-bottom:1rem;
 }
 .lead, .lead p {
-    font-size: 1.125rem;
-    font-weight: bold;
-    /* color: #727475 !important; */
+    font-size: 1.25rem;
+    font-weight: normal;
+    line-height: 1.6;
+    font-family: 'Playfair Display', sans-serif !important;
+    color: #727475 !important;
 }
 
 
@@ -34,7 +36,7 @@ img {
 .bodycopy h5,
 .bodycopy h6 {
     margin-top:1.5em;
-    margin-bottom: .5rem;
+    margin-bottom: .5rem; 
 }
 .bodycopy p {
     margin-bottom:1rem;
@@ -59,5 +61,5 @@ img {
 
 /* 11.5 all responsive*/
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
-    .nd_options_width_100_percentage_responsive { width: 50%; }
+    .nd_options_masonry_item.nd_options_width_100_percentage_responsive { width: 50%; }
 }
