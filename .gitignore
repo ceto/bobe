@@ -6,6 +6,7 @@ node_modules
 npm-debug.log
 vendor
 dploy.yaml
+beautypack
 # OS generated files #
 ######################
 .DS_Store

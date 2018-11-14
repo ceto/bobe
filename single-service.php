@@ -54,8 +54,15 @@ if ( $nd_options_meta_box_post_sidebar_position == '' ) { $nd_options_meta_box_p
 
 <?php
 
+
+$terms = get_the_terms( $post->ID, 'service-type' );
+$term = array_pop($terms);
 //header image
-$nd_options_customizer_archives_archive_image = get_option( 'nd_options_customizer_archives_archive_image' );
+if ($banner = get_field('banner', $term) ) {
+    $nd_options_customizer_archives_archive_image = $banner['ID'];
+} else {
+    $nd_options_customizer_archives_archive_image = get_option( 'nd_options_customizer_archives_archive_image' );
+}
 if ( $nd_options_customizer_archives_archive_image == '' ) { 
     $nd_options_customizer_archives_archive_image = '';  
 }else{

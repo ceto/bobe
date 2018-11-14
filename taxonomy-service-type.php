@@ -46,7 +46,14 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
 	<?php
 
 		//header image
-		$nd_options_customizer_archives_archive_image = get_option( 'nd_options_customizer_archives_archive_image' );
+        $term = get_queried_object();
+        if ($banner = get_field('banner', $term) ) {
+            $nd_options_customizer_archives_archive_image = $banner['ID'];
+        } else {
+            $nd_options_customizer_archives_archive_image = get_option( 'nd_options_customizer_archives_archive_image' );
+        }
+        
+
 		if ( $nd_options_customizer_archives_archive_image == '' ) { 
 		    $nd_options_customizer_archives_archive_image = '';  
 		}else{
@@ -58,7 +65,9 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
 		$nd_options_customizer_archives_archive_image_position = get_option( 'nd_options_customizer_archives_archive_image_position' );
 		if ( $nd_options_customizer_archives_archive_image_position == '' ) { 
 		    $nd_options_customizer_archives_archive_image_position = 'nd_options_background_position_center_top';  
-		}
+        }
+        
+
 
 	?>
 
@@ -66,7 +75,7 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
         $theservicetype = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
     ?>
 
-
+	
 	<div id="nd_options_archives_header_img_layout_3" class="nd_options_section nd_options_background_size_cover <?php echo $nd_options_customizer_archives_archive_image_position; ?> nd_options_bg_greydark" style="background-image:url(<?php echo $nd_options_customizer_archives_archive_image; ?>);">
 
         <div class="nd_options_section nd_options_bg_greydark_alpha_2">
@@ -114,6 +123,10 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
 
     <!--start nd_options_container-->
     <div class="nd_options_container nd_options_clearfix">
+        
+        <div class="nd_options_float_center nd_options_box_sizing_border_box nd_options_width_100_percentage_responsive nd_options_padding_15">
+            <div class="lead"><?php echo wpautop($term->description); ?></div>
+        </div>       
 
 	
 		<!--start all posts previews-->
@@ -154,7 +167,9 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
 
 						        <div class="nd_options_section nd_options_position_relative">
 						            
-						            <?php echo $nd_options_output_image ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php echo $nd_options_output_image ?>
+                                </a>
 
 						        </div>
 
