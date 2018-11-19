@@ -112,8 +112,8 @@ img {
     border-radius: 1.5em;
     padding:.5em 1.25em;
     line-height: 1;
-    background-color: #ebebeb;
-    border:1px solid #dfdfdf;
-    /* color:#fff !important; */
+    background-color: #ecbabe;
+    border:1px solid #ebb9bd;
+    color:#fff !important;
     font-size: .875rem;   
 }
