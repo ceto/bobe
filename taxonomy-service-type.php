@@ -161,27 +161,28 @@ if ( $nd_options_customizer_archives_archive_image_display != 1 ) { ?>
 					?>
 					
 					<!--#post-->
-					<div class="nd_options_width_33_percentage nd_options_padding_15 nd_options_box_sizing_border_box nd_options_masonry_item nd_options_width_100_percentage_responsive">
-					    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-						    <div class="nd_options_section nd_options_border_1_solid_grey">
+					<div class="nd_options_width_50_percentage nd_options_padding_15 nd_options_box_sizing_border_box nd_options_masonry_item nd_options_width_100_percentage_responsive">
+					    <div id="post-<?php the_ID(); ?>" <?php post_class('srvcard clearfix'); ?> >
 
-						        <div class="nd_options_section nd_options_position_relative">
-						            
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php echo $nd_options_output_image ?>
-                                </a>
+
+						        <figure class="srvcard__fig">
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php the_post_thumbnail('small') ?>
+                                    </a>
+						        </figure>
+
+						        <div class="srvcard__body">
+						            <h2 class="srvcard__title">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <?php the_title() ?>
+                                        </a>
+                                    </h2>
+                                    <div class="srvcard__desc">
+                                        <?php the_excerpt() ?>
+                                    </div>
+						            <a class="button" href="<?php the_permalink() ?>">Részletek</a>
 
 						        </div>
-
-						        <div class="nd_options_section nd_options_padding_30 nd_options_box_sizing_border_box">
-						            <h2 class="nd_options_margin_0_important nd_options_padding_0 "><?php echo $nd_options_title; ?></h2>
-						            <div class="nd_options_section nd_options_height_20"></div>
-						            <p class="nd_options_margin_0_important nd_options_padding_0"><?php echo $nd_options_excerpt; ?></p>
-						            <div class="nd_options_section nd_options_height_20"></div>
-						            <a style="background-color: <?php echo $nd_options_meta_box_page_color; ?>;" class="nd_options_display_inline_block nd_options_text_align_center nd_options_line_height_16 nd_options_box_sizing_border_box  nd_options_color_white nd_options_first_font nd_options_padding_10_20 nd_options_border_radius_25 " href="<?php echo $nd_options_permalink; ?>">Részletek</a>
-
-						        </div>
-						    </div>
 						</div>
 					</div>
 

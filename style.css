@@ -63,3 +63,57 @@ img {
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
     .nd_options_masonry_item.nd_options_width_100_percentage_responsive { width: 50%; }
 }
+
+
+.srvcard {
+ margin-bottom:30px;
+}
+
+
+.srvcard:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.srvcard__fig {
+    box-sizing: border-box;
+    float:left;
+    width: 25%;
+    margin:0;
+    padding:0;
+    padding-right:1rem;
+}
+
+.srvcard__body {
+    float: right;
+    width:75%;
+}
+
+.srvcard__title {
+    font-size:1.25rem;
+    font-family: 'Playfair Display', sans-serif !important;
+    margin:0 0 .5em;
+}
+
+.srvcard__title > a {
+    font-family: inherit !important;
+}
+.srvcard__desc {
+    margin:0 0 .75rem;
+}
+
+.srvcard__desc p {
+    line-height: 1.4;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 1.5em;
+    padding:.5em 1.25em;
+    line-height: 1;
+    background-color: #ebebeb;
+    border:1px solid #dfdfdf;
+    /* color:#fff !important; */
+    font-size: .875rem;   
+}
