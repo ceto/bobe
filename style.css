@@ -17,6 +17,26 @@ img {
     height:auto;
 }
 
+.bodycopy {
+    font-size: 1rem !important;
+}
+
+.bodycopy h2,
+.bodycopy h3,
+.bodycopy h4,
+.bodycopy h5,
+.bodycopy h6 {
+    margin-top:1.5em;
+    margin-bottom: 1rem; 
+}
+.bodycopy p {
+    margin-bottom:1rem;
+    font-size: 1rem;
+
+}
+
+
+
 .lead {
     margin-bottom:1rem;
 }
@@ -26,20 +46,6 @@ img {
     line-height: 1.6;
     font-family: 'Playfair Display', sans-serif !important;
     color: #727475 !important;
-}
-
-
-
-.bodycopy h2,
-.bodycopy h3,
-.bodycopy h4,
-.bodycopy h5,
-.bodycopy h6 {
-    margin-top:1.5em;
-    margin-bottom: .5rem; 
-}
-.bodycopy p {
-    margin-bottom:1rem;
 }
 
 
